@@ -1,0 +1,300 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; 
+  font-family: 'Fira Sans', sans-serif; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1 {
+  font-size: 48px;
+  font-weight: bold; }
+
+h2 {
+  font-size: 34px;
+  font-weight: bold; }
+
+h3 {
+  font-size: 20px;
+  font-weight: bold; }
+
+h4 {
+  font-size: 16px;
+  font-weight: bold; }
+
+h5 {
+  font-size: 14px;
+  font-weight: bold; }
+
+h6 {
+  font-size: 12px;
+  font-weight: bold; }
+
+a {
+  cursor: pointer; }
+
+body {
+  background: #A7A9AC;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.34, rgba(230, 237, 241, 0.05)), color-stop(0.67, rgba(230, 237, 241, 0)));
+  -webkit-background-size: 5px 5px;
+  padding-top: 100px; }
+
+.modal {
+  display: block!important;
+  background-color: rgba(0,0,0,0.5);}
+
+.toDoList {
+  color: #000;
+  background-color: #fff;
+  min-height: 500px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px; }
+
+.toDoList_menu,
+.toDoList_list {
+  margin-top: 15px;
+}
+
+.toDoList_menu {
+  min-height: 350px;
+  background-color: #00BFFF;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  word-wrap: break-word; }
+
+.toDoList_menu li > a {
+  text-decoration: none;
+  color: #000; }
+
+.toDoList_menu li > a div {
+  background-color: #FFFAFA;
+  border: 1px solid #000;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  -webkit-box-shadow:0px 2px 2px #000;
+           box-shadow:0px 2px 2px #000; }
+
+.toDoList_menu li > a > button {
+  vertical-align: middle;
+  display: inline-block; }
+
+.toDoList_menu li > a div:hover {
+  -webkit-box-shadow:0px 4px 4px #000;
+           box-shadow:0px 4px 4px #000;
+}
+
+.toDoList_menu li > a div:active {
+  -webkit-box-shadow:0px 0px 0px #000;
+           box-shadow:0px 0px 0px #000;
+}
+
+li.toDoList_menu_all > a div {
+  background-color: #A3FFE0;}
+
+.toDoList_list {
+  min-height: 350px;
+  background-color: #00BFFF;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  word-wrap: break-word; }
+
+.toDoList_list input[type="text"] {
+  min-width: 50px;
+  border: none;
+  word-wrap: break-word; }
+  
+.toDoList_list li > div {
+  position: relative;
+  background-color: #fff;
+  min-height: 30px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 100%;
+  line-height: 20px;
+  padding: 5px;
+  margin-bottom: 5px; }
+
+button.deleteBtn {
+  color: white;
+  background-color: red; }
+
+button.deleteBtn::before {
+  content: 'X';
+  position: relative;
+  left: 0px;
+  top: 0px; }
+
+button.editBtn {
+  margin-right: 10px;
+  color: black;
+  background-color: green; }
+
+button.editBtn::before {
+  font-weight: bold;
+  display: block;
+  width: 15px;
+  content: '...';
+  position: relative;
+  left: -4px;
+  top: -4px; }
+
+button.deleteBtn,
+button.editBtn {
+  outline: none;
+  float: right;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border: none;
+  -webkit-box-shadow:0px 2px 2px #000;
+          box-shadow:0px 2px 2px #000; }
+
+button.deleteBtn:hover,
+button.editBtn:hover {
+  -webkit-box-shadow:0px 2px 5px 1px #000;
+          box-shadow:0px 2px 5px 1px #000; }
+
+button.deleteBtn:active,
+button.editBtn:active {
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+.toDoList_list li > div > span {
+  float: right;
+  margin: 0 10px;
+  color: rgba(0,0,0,0.5); }
+ 
+.toDoList_form {
+  min-height: 150px;
+  background-color: #00BFFF;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px; }
+
+.toDoList_formMenu {
+  height: 100%;}
+ 
+.toDoList_form input[type="text"] {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 10px; }
+ 
+.toDoList_form input[type="text"]:focus {
+  border: 1px solid #11FF00; }
+ 
+.toDoList_form textarea {
+  outline: none;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  line-height: 20px; }
+ 
+.toDoList_form textarea:focus {
+  border: 1px solid #11FF00; }
+ 
+.toDoList_form select {
+  border-radius: 5px; }
+ 
+.toDoList_form input[type="submit"]::before {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-box-shadow: #959595 0 2px 5px;
+  -moz-box-shadow: #959595 0 2px 5px;
+  border-radius: 3px;
+  box-shadow: #959595 0 2px 5px;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  padding: 2px 0 0;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+ 
+.toDoList_form input[type="submit"]:active::before {
+  padding: 1px 0 0; }
+ 
+.toDoList_form input[type="submit"] {
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 40px;
+  background: #99b6df;
+  background: linear-gradient(#99b6df, #638ec8);
+  border: solid 1px #6d94ce;
+  border-bottom: solid 3px #3867ac;
+  box-shadow: inset 0 0 0 1px #bbcfeb;
+  color: #fff;
+  text-shadow: 0 1px 0 #3c61ab; }
+ 
+.toDoList_form input[type="submit"]:hover {
+  background: #638ec8;
+  background: linear-gradient(#638ec8, #99b6df);
+  border: solid 1px #6d94ce;
+  border-bottom: solid 3px #3867ac;
+  box-shadow: inset 0 0 0 1px #bbcfeb; }
+
+.toDoList_form input[type="submit"]:active {
+  background: #638ec8;
+  background: linear-gradient(#638ec8, #99b6df);
+  border: solid 1px #6d94ce;
+  box-shadow: inset 0 10px 15px 0 #4176c4; }
+
+.toDoList_formMenu input[type="text"] {
+  margin-top: 30px;}
+
+.toDoList_formMenu input[type="submit"] {
+  margin-top: 50px;}
