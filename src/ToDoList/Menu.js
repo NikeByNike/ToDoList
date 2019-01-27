@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import FlipMove from 'react-flip-move';
+import { connect } from "react-redux";
+import FlipMove from "react-flip-move";
 
 
 class Menu extends Component {
@@ -10,7 +10,7 @@ class Menu extends Component {
 	}
 
 	render() {
-	  return (
+		return (
 			<div className="toDoList_menu">
 				<ul>
 					<FlipMove duration={300} esing="ease-out">
@@ -25,7 +25,7 @@ class Menu extends Component {
 						</li>
 						{this.props.menu.map(item => (
 							<li key={item.id}>
-				    		<a onClick={this.filter.bind(this, item.id)}>
+							<a onClick={this.filter.bind(this, item.id)}>
 									<div>
 										<h2>
 											{item.name}
@@ -37,7 +37,7 @@ class Menu extends Component {
 					</FlipMove>
 				</ul>
 			</div>
-	  );
+		);
 	}
 }
 

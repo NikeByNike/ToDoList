@@ -17,16 +17,16 @@ class Modal extends Component {
 					text: this.inputText.value,
 					cat_id: this.props.modal.item.cat_id
 				},
-				isOpet: false
+				isOpen: false
 			};
-			this.props.editeListItem(ListItem);
+			this.props.editListItem(ListItem);
 		}
 	}
 
 	render() {
-		const isOpet = this.props.modal.isOpen;
+		const isOpen = this.props.modal.isOpen;
 
-		if (!isOpet) return null;
+		if (!isOpen) return null;
 
 	  return (
 			<div className="modal" tabIndex="-1" role="dialog">
@@ -37,7 +37,7 @@ class Modal extends Component {
 				        <input ref={(title) => { this.inputTitle = title }} type="text" 
 										 	 placeholder="Title" defaultValue={this.props.modal.item.title}/>
 				        <button type="button" onClick={this.closeModal.bind(this)} 
-				        				lassName="close" data-dismiss="modal" aria-label="Close">
+				        				className="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
@@ -66,7 +66,7 @@ export default connect(
 		modal: state.modal
 	}),
 	dispatch => ({
-		editeListItem: (ListItem) => {
+		editListItem: (ListItem) => {
 			dispatch({type: 'EDIT_LIST_ITEM', load: ListItem})
 		},
 		closeModal: () => {

@@ -25,11 +25,11 @@ class List extends Component {
 				<ul>
 					<FlipMove duration={300} esing="ease-out">
 						{this.props.items.map(item => 
-						  (this.props.coise === item.cat_id 
-						 	|| this.props.coise === 0) && (
+							(this.props.choice === item.cat_id
+							|| this.props.choice === 0) && (
 								<li key={item.id}>
 									<div>
-									<button className="deleteBtn" 
+									<button className="deleteBtn"
 													onClick={this.deleteItem.bind(this, item.id)} />
 									<button className="editBtn"
 													onClick={this.editItem.bind(this, item)} />
@@ -40,7 +40,7 @@ class List extends Component {
 											{item.title}
 										</h4>
 										<p>
-											{item.text}	
+											{item.text}
 										</p>
 									</div>
 								</li>
@@ -57,7 +57,7 @@ export default connect(
 	state => ({
 		items: state.list.items,
 		menu: state.menu,
-		coise: state.list.coise
+		choice: state.list.choice
 	}),
 	dispatch => ({
 		deleteId: (id) => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class FormMenu extends Component {
 	
@@ -16,11 +16,11 @@ class FormMenu extends Component {
 	}
 
 	render() {
-	  return (
+		return (
 			<div className="toDoList_form toDoList_formMenu">
 				<form autoComplete="off" onSubmit={this.MenuItem.bind(this)}>
 					<div>
-						<input ref={(title) => { this.inputTitle = title }} type="text" 
+						<input ref={(title) => { this.inputTitle = title }} type="text"
 									 placeholder="Новая категория" />
 					</div>
 					<div>
@@ -28,7 +28,7 @@ class FormMenu extends Component {
 					</div>
 				</form>
 			</div>
-	  );
+		);
 	}
 }
 

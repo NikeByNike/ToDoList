@@ -15,7 +15,7 @@ const initialState = {
 			text: 'купить новый телефон',
 			cat_id: 3}
 	],
-	coise: 0
+	choice: 0
 };
 
 export default function newState(state = initialState, action) {
@@ -30,7 +30,7 @@ export default function newState(state = initialState, action) {
 			if (action.load !== state.items[i].id) {
 				newState = [...newState, state.items[i]]
 			}
-		};
+		}
 		return {
 			...state,
 			items:newState
@@ -42,7 +42,7 @@ export default function newState(state = initialState, action) {
 				state.items[i] = action.load.item;
 			}
 			newState = [...newState, state.items[i]]
-		};
+		}
 		return {
 			...state,
 			items:newState
@@ -50,7 +50,7 @@ export default function newState(state = initialState, action) {
 	} else if (action.type === 'FILTER') {
 		return {
 			...state,
-			coise: action.load
+			choice: action.load
 		};
 	}
 	return state;
