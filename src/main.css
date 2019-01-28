@@ -104,30 +104,26 @@ body {
   padding: 10px;
   word-wrap: break-word; }
 
-.toDoList_menu li > a {
+.toDoList_menu li > div > a {
   text-decoration: none;
   color: #000; }
 
-.toDoList_menu li > a div {
+.toDoList_menu li > div {
   background-color: #FFFAFA;
   border: 1px solid #000;
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
   text-align: center;
-  -webkit-box-shadow:0px 2px 2px #000;
-           box-shadow:0px 2px 2px #000; }
+  -webkit-box-shadow:0 2px 2px #000;
+           box-shadow:0 2px 2px #000; }
 
-.toDoList_menu li > a > button {
-  vertical-align: middle;
-  display: inline-block; }
-
-.toDoList_menu li > a div:hover {
-  -webkit-box-shadow:0px 4px 4px #000;
-           box-shadow:0px 4px 4px #000;
+.toDoList_menu li > div:hover {
+  -webkit-box-shadow:0 4px 4px #000;
+           box-shadow:0 4px 4px #000;
 }
 
-.toDoList_menu li > a div:active {
+.toDoList_menu li > div:active {
   -webkit-box-shadow:0px 0px 0px #000;
            box-shadow:0px 0px 0px #000;
 }
@@ -298,3 +294,11 @@ button.editBtn:active {
 
 .toDoList_formMenu input[type="submit"] {
   margin-top: 50px;}
+
+.toDoList_menu li > div {
+    position: relative; }
+
+.toDoList_menu li > div > button {
+    position: absolute;
+    top: -7px;
+    right: -5px; }

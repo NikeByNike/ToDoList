@@ -9,29 +9,36 @@ class Menu extends Component {
     this.props.filterId(catId);
   };
 
+  delMenuItem = catId => {
+    this.props.deleteListItems(catId);
+    this.props.delMenuItem(catId);
+  };
+
   render() {
     return (
       <div className="toDoList_menu">
         <ul>
           <FlipMove duration={300} esing="ease-out">
             <li className="toDoList_menu_all">
-              <a onClick={() => this.filter(0)}>
-                <div>
-                  <h2>
-                    Все
-                  </h2>
-                </div>
-              </a>
+              <div>
+                <a onClick={() => this.filter(0)}>
+                <h2>
+                  Все
+                </h2>
+                </a>
+              </div>
             </li>
             {this.props.menu.map(item => (
               <li key={item.id}>
-                <a onClick={() => this.filter(item.id)}>
-                  <div>
+                <div>
+                  <button className="deleteBtn"
+                          onClick={() => this.delMenuItem(item.id)}/>
+                  <a onClick={() => this.filter(item.id)}>
                     <h2>
                       {item.name}
                     </h2>
-                  </div>
-                </a>
+                  </a>
+                </div>
               </li>
             ))}
           </FlipMove>
@@ -48,6 +55,12 @@ export default connect(
   dispatch => ({
     filterId: catId => {
       dispatch({type: 'FILTER', load: catId});
+    },
+    delMenuItem: catId => {
+      dispatch({type: 'DELETE_MENU_ITEM', load: catId});
+    },
+    deleteListItems: catId => {
+      dispatch({type: 'DELETE_LIST_ITEM_BY_CAT', load: catId});
     },
   })
 )(Menu);

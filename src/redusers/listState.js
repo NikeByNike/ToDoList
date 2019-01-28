@@ -26,16 +26,24 @@ export default function listState(state = initialState, action) {
       items: {...state.items, ...action.load},
     };
   } else if (action.type === 'DELETE_LIST_ITEM') {
-    let newState = {};
+    const newState = {...state.items};
+    delete newState[action.load];
+    return {
+      ...state,
+      items: { ...newState},
+    };
+  } else if (action.type === 'DELETE_LIST_ITEM_BY_CAT') {
+    const newState = {};
     const keys = Object.keys(state.items);
-    keys.map(id => {
-      if (action.load !== id) {
-        newState[id] = {...state.items[id]};
+    keys.forEach(id => {
+      if (state.items[id].cat_id !== action.load) {
+        newState[id] = state.items[id];
       }
     });
     return {
       ...state,
       items: { ...newState},
+      choice: 0,
     };
   } else if (action.type === 'FILTER') {
     return {
