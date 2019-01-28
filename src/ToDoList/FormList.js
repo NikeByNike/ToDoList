@@ -6,8 +6,9 @@ class FormList extends Component {
   listItem(e) {
     e.preventDefault();
     if (this.inputTitle.value.trim() !== '') {
-      const ListItem = {
-        id: Date.now(),
+      const id = Date.now();
+      const ListItem = {};
+      ListItem[id] = {
         title: this.inputTitle.value.trim(),
         text: this.inputText.value.trim(),
         cat_id: parseInt(this.selectOption.value, 10),

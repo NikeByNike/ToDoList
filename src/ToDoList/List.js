@@ -7,12 +7,14 @@ class List extends Component {
     this.props.deleteId(id);
   }
 
-  editItem(item) {
+  editItem(item, id) {
+    item['id'] = id;
     this.props.editId(item);
   }
 
   render() {
-    const menu = this.props.menu;
+    const { items, menu } = this.props;
+    const keys = Object.keys(this.props.items);
     const category = {};
 
     for (let i = 0; i < menu.length; i++) {
@@ -23,23 +25,23 @@ class List extends Component {
       <div className="toDoList_list">
         <ul>
           <FlipMove duration={300} esing="ease-out">
-            {this.props.items.map(item =>
-              (this.props.choice === item.cat_id
+            {keys.map(id =>
+              (this.props.choice === items[id].cat_id
                 || this.props.choice === 0) && (
-                <li key={item.id}>
+                <li key={id}>
                   <div>
                     <button className="deleteBtn"
-                            onClick={() => this.deleteItem(item.id)}/>
+                            onClick={() => this.deleteItem(id)}/>
                     <button className="editBtn"
-                            onClick={() => this.editItem(item)}/>
+                            onClick={() => this.editItem(items[id], id)}/>
                     <span>
-                      {category[item.cat_id]}
+                      {category[items[id].cat_id]}
                     </span>
                     <h4>
-                      {item.title}
+                      {items[id].title}
                     </h4>
                     <p>
-                      {item.text}
+                      {items[id].text}
                     </p>
                   </div>
                 </li>
@@ -63,7 +65,7 @@ export default connect(
       dispatch({type: 'DELETE_LIST_ITEM', load: id});
     },
     editId: item => {
-      dispatch({type: 'PRE_EDIT_LIST_ITEM', load: item});
+      dispatch({type: 'OPEN_MODAL', load: item});
     },
   })
 )(List);

@@ -5,8 +5,8 @@ import FlipMove from 'react-flip-move';
 
 class Menu extends Component {
 
-  filter = id => {
-    this.props.filterId(id);
+  filter = catId => {
+    this.props.filterId(catId);
   };
 
   render() {
@@ -46,8 +46,8 @@ export default connect(
     menu: state.menuState,
   }),
   dispatch => ({
-    filterId: id => {
-      dispatch({type: 'FILTER', load: id});
+    filterId: catId => {
+      dispatch({type: 'FILTER', load: catId});
     },
   })
 )(Menu);

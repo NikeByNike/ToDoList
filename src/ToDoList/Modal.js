@@ -10,21 +10,20 @@ class Modal extends Component {
   listItem(e) {
     e.preventDefault();
     if (this.inputTitle.value !== '') {
-      const ListItem = {
-        item: {
-          id: this.props.modal.item.id,
-          title: this.inputTitle.value,
-          text: this.inputText.value,
-          cat_id: this.props.modal.item.cat_id,
-        },
-        isOpen: false,
+      const ListItem = {};
+      ListItem[this.props.modal.item.id] = {
+        title: this.inputTitle.value,
+        text: this.inputText.value,
+        cat_id: this.props.modal.item.cat_id,
       };
       this.props.editListItem(ListItem);
+      this.props.closeModal();
     }
   }
 
   render() {
-    const isOpen = this.props.modal.isOpen;
+    const { isOpen, item } = this.props.modal;
+    const id = Object.keys(item)[0];
 
     if (!isOpen) {
       return null;
@@ -39,7 +38,7 @@ class Modal extends Component {
                 <input ref={title => {
                   this.inputTitle = title;
                 }} type="text"
-                       placeholder="Title" defaultValue={this.props.modal.item.title}/>
+                       placeholder="Title" defaultValue={item.title}/>
                 <button type="button" onClick={() => this.closeModal()}
                         className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -50,7 +49,7 @@ class Modal extends Component {
                   this.inputText = text;
                 }}
                           cols="50" rows="5" placeholder="Text"
-                          defaultValue={this.props.modal.item.text}/>
+                          defaultValue={item.text}/>
               </div>
               <div className="modal-footer">
                 <input type="submit" className="btn btn-primary" value="Сохронить"/>
