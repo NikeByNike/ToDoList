@@ -79,6 +79,18 @@ body {
   -webkit-background-size: 5px 5px;
   padding-top: 100px; }
 
+.toDoList_list li > div.red {
+  background-color: #ff4400;
+}
+
+.toDoList_list li > div > span.death_time {
+  color: #000000;
+}
+
+.formList_selectors {
+  display: flex;
+  justify-content: space-between;}
+
 .modal {
   display: block!important;
   background-color: rgba(0,0,0,0.5);}

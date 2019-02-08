@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import DateTimePicker from 'react-datetime-picker'
 
 class FormList extends Component {
+  state = {
+    date: new Date(),
+  };
 
   listItem(e) {
     e.preventDefault();
@@ -12,12 +16,15 @@ class FormList extends Component {
         title: this.inputTitle.value.trim(),
         text: this.inputText.value.trim(),
         cat_id: parseInt(this.selectOption.value, 10),
+        date: this.state.date,
       };
       this.props.addListItem(ListItem);
       this.inputTitle.value = '';
       this.inputText.value = '';
     }
   }
+
+  onChange = date => this.setState({date});
 
   render() {
     return (
@@ -35,16 +42,26 @@ class FormList extends Component {
             }}
                       cols="40" rows="2" placeholder="Text"/>
           </div>
-          <div>
-            <label htmlFor="select-choice">Выберите категорию:</label><br/>
-            <select ref={category => {
-              this.selectOption = category;
-            }}
-                    id="select-choice">
-              {this.props.menu.map(item => (
-                <option key={item.id} value={item.id}>{item.name}</option>
-              ))}
-            </select>
+          <div className="formList_selectors">
+            <div>
+              <label htmlFor="select-choice">Выберите категорию:</label><br/>
+              <select ref={category => {
+                this.selectOption = category;
+              }}
+                      id="select-choice">
+                {this.props.menu.map(item => (
+                  <option key={item.id} value={item.id}>{item.name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              Выполнить до:<br/>
+              <DateTimePicker
+                onChange={this.onChange}
+                value={this.state.date}
+                showLeadingZeros={true}
+              />
+            </div>
           </div>
           <div>
             <input type="submit" value="Добавить"/>

@@ -29,7 +29,7 @@ class List extends Component {
               (this.props.choice === items[id].cat_id
                 || this.props.choice === 0) && (
                 <li key={id}>
-                  <div>
+                  <div className={items[id].date < new Date() ? "red" : null}>
                     <button className="deleteBtn"
                             onClick={() => this.deleteItem(id)}/>
                     <button className="editBtn"
@@ -37,6 +37,11 @@ class List extends Component {
                     <span>
                       {category[items[id].cat_id]}
                     </span>
+                    {items[id].date < new Date() ?
+                      <span className="death_time">
+                        Просрочен
+                      </span>
+                    : null}
                     <h4>
                       {items[id].title}
                     </h4>

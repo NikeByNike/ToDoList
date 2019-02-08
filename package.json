@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.4.2",
+    "react-datetime-picker": "^2.1.1",
     "react-dom": "^16.4.2",
     "react-flip-move": "^3.0.2",
     "react-redux": "5.0.7",
